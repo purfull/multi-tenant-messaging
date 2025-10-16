@@ -124,7 +124,8 @@ POST /orgs
 Content-Type: application/json
 
 {
-  "name": "Org 1"
+  "name": "Org 1",
+  "initialCredits": 100 
 }
 ```
 
@@ -243,14 +244,18 @@ src/
 │  ├─ db.ts              # Shared DB connection
 │  ├─ tenantManager.ts   # Multi-tenant logic
 ├─ controllers/
+│  ├─ health.controller.ts
 │  ├─ org.controller.ts
 │  ├─ message.controller.ts
 ├─ middlewares/
+│  ├─ errorHandler.ts
 │  ├─ tenantResolver.ts
+│  ├─ rateLimite.ts
 ├─ models/
 │  ├─ org.model.ts
 │  ├─ message.model.ts
 ├─ routes/
+│  ├─ health.routes.ts
 │  ├─ org.routes.ts
 │  ├─ message.routes.ts
 ├─ services/
