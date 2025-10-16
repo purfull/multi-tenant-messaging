@@ -261,6 +261,22 @@ src/
 ```
 
 ---
+## Rate Limiting
+
+To prevent abuse and ensure fair usage, this project includes **rate limiting** on API endpoints using the `express-rate-limit` middleware.
+
+### How it works
+
+- Each client (by IP or tenant org) is limited to a certain number of requests per time window.
+- Example configuration:
+  ```ts
+  import rateLimit from 'express-rate-limit';
+
+  export const apiRateLimiter = rateLimit({
+    windowMs: 1 * 60 * 1000, // 1 minute
+    max: 5,                 // max 5 requests per window
+    message: { error: 'Too many requests, please try again later.' },
+  });
 
 ## Notes
 
