@@ -2,7 +2,6 @@ import type { Request, Response } from 'express';
 import { Org } from '../models/org.model.ts';
 import { sequelize } from '../config/db.ts';
 
-// create a new organization
 export const createOrg = async (req: Request, res: Response) => {
   const { name, initialCredits } = req.body;
 
@@ -19,7 +18,6 @@ export const createOrg = async (req: Request, res: Response) => {
   }
 };
 
-// get organization info
 export const getOrg = async (req: Request, res: Response) => {
   const orgId = req.params.id;
 
@@ -34,7 +32,6 @@ export const getOrg = async (req: Request, res: Response) => {
   }
 };
 
-// adjust organization credits
 export const updateCredits = async (req: Request, res: Response) => {
   const orgId = req.params.id;
   const { delta } = req.body;
